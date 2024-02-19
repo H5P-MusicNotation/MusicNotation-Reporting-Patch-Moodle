@@ -1,0 +1,727 @@
+.dropdown button{
+    height: 100%;
+}
+
+.vibe-container{    
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    /* overflow: scroll; */
+}
+
+body.waiting * {
+    cursor: wait !important;
+}
+
+
+#scoreRects > :is(.notehead, .clef, .meterSig, .keySig, .rest, .harm, .manipulator, .slur, .tie, .tupletNum, .tupletBracket):hover{
+    cursor: pointer;
+}
+
+#scoreRects .notehead:hover{
+    cursor: ns-resize !important;
+}
+
+.clickmode{
+    cursor: crosshair
+}
+
+#vrvSVG{
+    /*top: 0px;*/
+    width: 100%;
+    height: auto;
+    /*position: absolute;*/
+    display: flex;
+    flex-direction: column;
+}
+
+.page{
+    translate: 0 10%;
+}
+
+#vrvSVG .systemLine{
+    stroke: black;
+    stroke-dasharray: 10rem;
+    stroke-width: 1rem;
+}
+
+#interactionOverlay{
+    position: absolute;
+    /* top: 0px;
+    width: 100%; */
+    z-index: 100;
+}
+
+/* This one is for Debugging. 
+Change fill-opacity and stroke-opacity to display boundsing boxes*/
+.debug #scoreRects *, #scoreRects .moving{
+    stroke-width: 1px;
+    stroke: black;
+    fill: gray;
+    fill-opacity: 0.1;
+    stroke-opacity: 1;
+}
+
+#scoreRects *{
+    stroke-width: 1px;
+    stroke: black;
+    fill: gray;
+    fill-opacity: 0;
+    stroke-opacity: 0;
+}
+
+
+text{
+    cursor: text;
+}
+
+#svgContainer{
+    position: relative;
+    height: 100%;
+    overflow: scroll;
+}
+
+.staff.lastEntered > .staffLine:first-of-type, .staff.lastEntered > .staffLine:last-of-type, .staff.lastEntered ~ .barLine{
+    filter: drop-shadow(5px 16px 15px black)
+}
+
+
+/*
+*   TOOLBAR
+*/
+
+.verticalLine{
+    border-left: 1px solid black;
+    height: auto;
+    position: absolute;
+}
+
+#insertMode.empty{
+    background-image: url(../images/GUI/edit-solid.svg);
+    background-position-x: 10%;
+}
+
+
+#insertMode{
+    background-color: white;
+    color: black;
+}
+
+.smufl{
+    font-family: "BravuraText";
+    /* font-size: xx-large; */
+    font-size: 160%;
+}
+
+.harm *{
+    font-family: "BravuraText";
+}
+
+#playBtn{
+    background-image: url(../images/GUI/play-solid.svg);
+    background-size: 80%;
+}
+
+#pauseBtn{
+    background-image: url(../images/GUI/pause-solid.svg);
+    background-size: 80%;
+}
+
+#rewindBtn{
+    background-image: url(../images/GUI/backward-fast-solid.svg);
+    background-size: 80%;
+}
+
+#zoomInBtn{
+    background-image: url(../images/GUI/zoomin.svg);
+    background-size: 80%;
+}
+
+#zoomOutBtn{
+    background-image: url(../images/GUI/zoomout.svg);
+    background-size: 80%;
+}
+
+#tupletBtn{
+    background-image: url(../images/GUI/triplet.svg);
+    background-size: 80%;
+    color: rgba(0, 0, 0, 0.0)
+}
+
+.btn{
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    outline: none;
+    font-family: Bravura;
+    font-size: larger;
+}
+
+.articulationGroup .btn{
+    font-size: larger;
+}
+
+.btn-group-md{
+    display: flex;
+}
+
+/* .btn:hover, .btn.selected {
+    filter: invert();
+    color: black;
+    background-color: white;
+} */
+
+.btn:hover{ 
+   background-color: lightgray;
+   color: #ffffff;
+   
+ }
+ 
+ .btn.selected {
+   background-color: black;
+   color: #ffffff;
+   
+ }
+
+#btnToolbar{
+    top: 0px;
+    transition: 0.5s;
+    /*height: 5%;*/
+}
+
+#customToolbar :first-child{
+ margin-left: 0.25em;
+}
+
+#customToolbar{
+    box-shadow: 0px 1px 3px lightgray;
+}
+
+#btnToolbar{
+    box-shadow: inset 0px -3px 3px lightgray;
+}
+
+.dropdown-item.selected{
+    background-color: antiquewhite;
+    font-weight: bold;
+}
+
+.accordion-item, .accordion-header{
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    border-bottom-width: 1.5px;
+}
+
+.accordion-button{
+    padding: 1.5rem 1.25rem !important;
+}
+
+#midiDeviceSelect{
+ width: 100%;
+}
+
+#toggleSidebar{
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+#toggleSidebar.closedSidebar{
+    background-image: url(../images/GUI/bars-solid.svg);
+    background-size: 80%;
+}
+
+#toggleSidebar.openSidebar{
+    background-image: url(../images/GUI/bars-solid.svg);
+    background-size: 80%;
+}
+
+#insertDropdownKM .hide{
+    display: none;
+}
+
+#insertToggleDiv{
+    display: none;
+}
+
+#fileSelectGroup{
+  align-self: flex-end;
+  margin-left: auto;
+  display:flex;
+}
+
+/* #midiSelectGroup{
+    align-self:baseline;
+    margin-left: auto;
+  display:flex
+} */
+
+#handlerGroup{
+    display: none
+}
+
+#importXML, #importAudioFile{
+    display: none;
+}
+
+#sidebarContainer{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+    transition: 0.5s;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebarContainer a{
+    display: block;
+    padding-left: 10px;
+}
+
+/* #sidebarContainer *{
+    font-size: 10pt;
+} */
+
+#sidebarContainer.closedSidebar{
+    visibility: hidden;
+    width: 0
+}
+
+#sidebarContainer.openSidebar{
+    visibility: visible;
+    width: 10%;
+}
+
+#sidebarContainer.openSidebar ~ div {
+    margin-left: 10%;
+    width: 90%;
+    flex-wrap: wrap;
+    display: flex;
+    transition: 0.5s;
+}
+
+#sidebarContainer.closedSidebar ~ div{
+    margin-left: 0;
+    width: 100%;
+    transition: 0.5s;
+}
+
+#sidebarList{
+    position: relative;
+    overflow: scroll;
+    width: 100%;
+    resize: vertical;
+}
+
+.dropKey, .dropClef, .dropTime, .dropTempo{
+    fill: orange;
+    color: orange;
+}
+
+#timeDiv{
+    cursor:pointer !important;
+}
+
+#annotList{
+    width: 100%;
+    position: relative;
+    background-color: white;
+    border-top-color: black;
+    border-left-color: white;
+    border-right-color: white;
+    border-bottom-color: white;
+    border-style: double;
+    overflow: scroll;
+    order: 2;
+    resize: vertical;
+}
+
+#annotList > a{
+    white-space: pre-line;
+    overflow: unset;
+}
+
+
+.list-group{
+    display: block;
+}
+
+#btnToolbar{
+    display: flex;
+}
+
+.btn-toolbar:not(:empty){
+    border-top-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+}
+
+.tabBtn{
+    border-bottom-color: rgba(0, 0, 0, 0.0);
+    border-bottom-left-radius: 0% !important;
+    border-bottom-right-radius: 0% !important;
+    margin-bottom: -3px;
+}
+[role="group"]{
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+#customToolbar [role="group"]{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+[role="group"] button:first-of-type{
+    border-bottom-left-radius: .2rem;
+    border-top-left-radius: .2rem;
+}
+
+[role="group"] button:last-of-type{
+    border-bottom-right-radius: .2rem;
+    border-top-right-radius: .2rem;
+}
+
+.btn-group-md>.btn, .btn-sm{
+    border-radius: 0%;
+}
+
+
+/*
+* ANNOTATIONS
+*/
+
+/* 
+#annotationCanvas.back *{
+   opacity: 0.5;
+}*/
+
+/* #annotationCanvas.front *{
+    opacity: 1;
+} */
+
+
+
+.annotLinkedText .annotFO{
+    /*background-color: rgba(255, 255, 153, 0.8);*/
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0px 10px 10px 10px;
+    border-color: black;
+    border-style: solid;
+    border-width: 3px;
+}
+
+
+.annotStaticText .annotFO div{
+    background-color: white;
+    border: 1px solid black;
+}
+
+.annotDiv{
+    height: 100%;
+    width: 100%;
+}
+
+.annotLine{
+    stroke-width: 2px;
+    stroke: lightskyblue;
+    stroke-dasharray: 2px;
+}
+
+
+.lineDragRect{
+    stroke-width: 1px;
+    stroke: black;
+    fill: wheat;
+    height: 10px;
+    width: 10px;
+    transform: translate(-5, -5);
+}
+
+.highlightAnnotation, .highlightChord{
+    /*fill-opacity: 0.1;
+    outline-style: dotted;
+    outline-width: 0.5px;
+    outline-color: black; */
+    filter: drop-shadow( 0px 0px 3em teal)
+}
+
+#playCursor{
+    stroke-width: 10px;
+    stroke: orangered;
+}
+
+.layer[n="1"] .highlighted{
+    
+    filter: drop-shadow(30px 10px 4px rgb(255, 71, 255));
+} 
+
+#phantomNote.l1{
+    fill: rgb(255, 71, 255)
+}
+
+
+.layer[n="2"] .highlighted{
+    filter: drop-shadow(30px 10px 4px green);
+}
+
+#phantomNote.l2{
+    fill: green;
+}
+
+.layer[n="3"]  .highlighted{
+    filter: drop-shadow(30px 10px 4px blue);
+}
+
+#phantomNote.l3{
+    fill: blue;
+}
+
+.layer[n="4"]  .highlighted{
+    filter: drop-shadow(30px 10px 4px orange);
+}
+
+#phantomNote.l4{
+    fill: orange;
+}
+
+.customAnnotShape{
+    fill: orange;
+    fill-opacity: 0.2;
+    outline-style: dotted;
+    outline-width: 0.5px;
+    outline-color: black; 
+}
+
+.customAnnotShape.selected{
+    outline-style: dashed;
+    outline-color:cornflowerblue;
+    outline-width: 1;
+}
+
+
+.annotLinkedText.selected > .annotFO, .annotStaticText.selected > .annotFO{
+    border-color:cornflowerblue;
+    border-width: 1;
+    border-style: dashed;
+}
+
+
+[contentEditable=false]:empty:not(:focus):before{
+    content:attr(data-text);
+    color: lightgray;
+}
+
+g.currentlyPlaying *{
+    fill:red !important;
+    fill-opacity: 1;
+}
+
+#followerRect{
+    fill: red;
+    fill-opacity: 0.3;
+    outline-style: none;
+}
+
+.marked, .marked *{
+    /* fill: red !important; */
+    filter: invert() drop-shadow(0 0 1rem crimson); 
+}
+
+.lastAdded{
+    fill:darkcyan
+}
+
+.playing{
+    fill: red
+}
+
+/* LABELS */
+
+.labelDiv{
+    border: 2px solid black;
+    border-radius: 10px;
+    height: fit-content;
+    width: fit-content;
+    min-width: 50px;
+    background-color: beige;
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.labekFO{
+    height: 100%;
+    width: 100%;
+}
+
+/* KEYMODE */
+
+#keyModeSelectRect{
+    stroke: black;
+    stroke-opacity: 1;
+    stroke-width: 2px;
+    fill: lightskyblue;
+    fill-opacity: 0.4;
+}
+
+/* #manipulatorCanvas > #cursor{
+    display: none
+} */
+
+/* CLICK MODE */
+
+
+/* #phantomNote{
+    transform: skew(-20deg);
+} */
+
+
+.phantomLine, .phantomMarker{
+    stroke-width: 2px;
+    stroke:black;
+    opacity: 0.5;
+}
+
+
+/*StatusBar*/
+
+#statusBar{
+    position: absolute;
+    height: 5%;
+    width: 100%;
+    bottom: 0;
+    background-color: lightskyblue;
+    border-style: outset;
+    z-index: 100;
+}
+
+
+/*Score Manipulator*/
+
+#manipulatorCanvas{
+    z-index: 101;
+}
+
+.signElement{
+    stroke: black;
+    stroke-width: 10%;
+}
+
+#measureAdder, #measureRemover{
+    height: 10%;
+    width: 10%;
+}
+
+#manipulationButton{
+    stroke:black;
+    stroke-width: 5%;
+    fill: antiquewhite;
+}
+
+.manipulator:hover *:not(.selected) , .manipulator.selected{
+    filter: invert();
+    cursor: pointer;
+}
+
+.voiceBtn.inactive > rect{
+   fill: lightgray;
+}
+
+.voiceBtn.inactive > text{
+    fill: gray;
+ }
+
+
+.voiceBtn > rect{
+    stroke-width: 5%;
+    stroke: black;
+    width: 100%;
+    height: 100%;
+    fill: antiquewhite
+}
+
+.voiceBtn > text{
+    font-size: 100%;
+    width: 100%;
+    height: 100%;
+    fill: black;
+}
+
+.tooltip.show{
+    display:contents;
+    background: skyblue;
+    color: #643045;
+    font-weight: bold;
+    padding: 5px 10px;
+    font-size: 13px;
+    border-radius: 4px;
+    border-color: maroon;
+    display: block;
+    opacity: 1;
+    position: absolute;
+  }
+
+/* .tooltip{
+    inset:  !important;
+} */
+
+.tooltip.hide{
+    display: none
+}
+
+.overfillMark{
+    color:rgba(0, 0, 0, 0.5);
+    font-size: 12em;
+    font-weight: bolder;
+    z-index: 100;
+
+}
+
+/*Disable interaction*/
+
+#ff_warning{
+    background: rgba(0, 0, 0, 0.25);
+    width: 100%;
+    margin: auto;
+    height: 100%;
+    text-align: center;
+    font-size: xx-large;
+    color:crimson;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.hideUI{
+    display: none !important;
+}
+
+#pauseNote{
+    display: none;
+}
+
+#interactionOverlay, #vrvSVG > svg{
+    transform-origin: top left
+}
+
+.indexBase{
+    font-size: 0.7em;
+}
+
+foreignObject > [contenteditable]{
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+
+}
+
+button{
+    box-shadow: none !important;
+}
