@@ -45,7 +45,7 @@ abstract class TypeProcessor {
     if($decodedResponse !== false){
       if(strpos($decodedResponse, $meiNamespace) !== false &&
       strpos($decodedResponse, $verovio) !== false){
-        $vibeCssFile = __DIR__ . "/../styles/vibe.css";
+        $vibeCssFile = __DIR__ . "/../styles/vibe-php.css";
         $cssContent = file_get_contents($vibeCssFile);
         echo '<style type="text/css">' . $cssContent . '</style>';
         
