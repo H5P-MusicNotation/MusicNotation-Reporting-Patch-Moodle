@@ -725,3 +725,17 @@ foreignObject > [contenteditable]{
 button{
     box-shadow: none !important;
 }
+
+/* Dislay options for wrong and correct answers*/
+
+.wrong *, .wrong{
+  fill:crimson !important;
+  fill-opacity: 1;
+  color: crimson !important;
+}
+
+.correct *, .correct{
+  fill:green !important;
+  fill-opacity: 1;
+  color: green !important;
+}
