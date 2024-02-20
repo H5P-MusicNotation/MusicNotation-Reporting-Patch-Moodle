@@ -3,7 +3,8 @@ A H5P patch to display Verovio rendered SVG Data in the Moodle gradebook for Mus
 
 ## Installation 
 ```
-cd /path_to_your_moodle_data_directory 
+// moodle root directory is the same that also contains "mod"
+cd /path_to_your_moodle_root_directory 
 git clone https://github.com/H5P-MusicNotation/MusicNotation-Reporting-Patch-Moodle.git
 cd MusicNotation-Reporting-Patch-Moodle
 bash ./patch_reporting.zsh
