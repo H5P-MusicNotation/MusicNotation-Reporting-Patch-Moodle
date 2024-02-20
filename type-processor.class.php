@@ -51,7 +51,7 @@ abstract class TypeProcessor {
         
         $dom = new DOMDocument();
         try{ // if there is no valid html, this block will be omitted
-          $dom->loadHTML($decodedResponse);
+          @$dom->loadHTML($decodedResponse);
           $xpath = new DOMXPath($dom);
 
           if($xpath->query('//*[@id="interactionOverlay"]')->length == 0){
