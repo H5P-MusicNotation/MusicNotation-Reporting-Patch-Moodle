@@ -10,6 +10,8 @@
     /* overflow: scroll; */
 }
 
+
+
 body.waiting * {
     cursor: wait !important;
 }
@@ -76,10 +78,13 @@ text{
     cursor: text;
 }
 
-#svgContainer{
-    position: relative;
+#svgContainer, #svgContainer > svg, #svgContainer > g > svg{
+    /* position: relative;
     height: 100%;
-    overflow: scroll;
+    overflow: scroll; */
+    position: absolute !important;
+    max-width: 100% !important;
+
 }
 
 .staff.lastEntered > .staffLine:first-of-type, .staff.lastEntered > .staffLine:last-of-type, .staff.lastEntered ~ .barLine{
@@ -420,6 +425,12 @@ text{
     border-color: black;
     border-style: solid;
     border-width: 3px;
+    position: absolute;
+}
+
+.annotFO{
+    width: 15%;
+    height: 10%;
 }
 
 
